@@ -1,0 +1,8 @@
+package Homework.HW_1;
+
+
+public class HW1 { 
+ 
+    public static void main(String[] args) {         BufferOfDoubles test = new BufferOfDoubles(24);         test.add(12.75);         test.add(7.92654);         test.add(-87.58125);         test.add(12.17);         test.add(36.894);         test.add(567.1234567);         test.add(12.75);         test.display();         System.out.println("testing findFirst: " + test.findFirst(12.75));         System.out.println("testing findLast: " + test.findLast(12.75));         System.out.println("testing removeStable: " + test.removeStable(2));         System.out.println("testing removeQuick: " + test.removeQuick(4));         System.out.println("testing remove: " + test.removeStable(25));         System.out.println("testing remove: " + test.removeQuick(-10));         System.out.println("testing displayAsTable ");         test.displayAsTable(5);         test.clear();         System.out.println("testing clear:");         test.displayAsTable(1);         System.out.println("testing addArray: "                            + test.addArray(randomDoubles(50, -50, 50), 4, 44));         test.displayAsTable(6);         System.out.println("tested displayAsTable");     }       public static double[] randomDoubles(int count, double min, double max) {         double arr[] = new double[count];         for (int i = 0; i < arr.length; i++)             arr[i] = Math.random() * (max - min) + min;         return arr;     } 
+ 
+}
