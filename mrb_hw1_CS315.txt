@@ -1,0 +1,17 @@
+12.75 7.93 -87.58 12.17 36.89 567.12 12.75 
+testing findFirst: 0
+testing findLast: 6
+testing removeStable: true
+testing removeQuick: true
+testing remove: false
+testing remove: false
+testing displayAsTable 
+  12.750   7.927  12.170  36.894  12.750
+testing clear:
+
+testing addArray: 24
+ -47.145  16.642  12.800 -45.747 -24.628   5.236
+  20.642 -16.169  19.858  29.617  33.057 -44.026
+  48.853  10.979 -10.076  16.414  27.562   7.498
+  42.779  -7.715 -35.894 -11.417  -8.035   7.502
+tested displayAsTable
