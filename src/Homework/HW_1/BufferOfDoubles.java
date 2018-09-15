@@ -15,8 +15,8 @@ package Homework.HW_1;
  */
 
 public class BufferOfDoubles {
-	private double[] arrayOfValues;
-	private int numberOfValues;
+	protected double[] arrayOfValues;
+	protected int numberOfValues;
 
 	// Constructor, inits arrayOfValues to an actual array
 	public BufferOfDoubles(int size) {
