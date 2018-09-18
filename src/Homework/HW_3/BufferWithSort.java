@@ -53,30 +53,31 @@ public class BufferWithSort extends BufferOfDoubles {
 	}
 
 	private void shiftRight(int indexToVacate, int sizeSoFar) {
-		
-		// the shift loop should include: moveCount++;
+		double temp = arrayOfValues[sizeSoFar];
+		moveCount++;
+		for(int i = sizeSoFar; i > indexToVacate; i--) {
+			arrayOfValues[i] = arrayOfValues[i-1];
+			moveCount++;
+		}
+		arrayOfValues[indexToVacate] = temp;
+		moveCount++;
 	}
 
 	private void addInOrder(double value, int lengthOfSortedData) {
-		
-		// the loop to find location should include:
-		// compareCount++;
+		int i = 0;
+		while (arrayOfValues[i] <= value && i < lengthOfSortedData) {
+			compareCount++;
+			i++;
+		}
+		if (i != lengthOfSortedData) {
+			shiftRight(i, lengthOfSortedData);
+		}
 	}
-
 	public void insertionSort() {
 		for(int i = 1; i < numberOfValues; i++) {
-			double temp = arrayOfValues[i];
-			
-			int j = i-1;
-			while(j>= 0 && arrayOfValues[j] > temp) {
-				compareCount++;
-				moveCount++;
-				arrayOfValues[j+1] = arrayOfValues[j];
-				j--;
-			}
-			arrayOfValues[j+1] = temp;
-			moveCount++;
+			addInOrder(arrayOfValues[i], i);
 		}
+
 	}
 
 	public void shuffle() {

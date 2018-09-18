@@ -8,7 +8,6 @@ public class runner {
  
 	public static void main(String[] args) {
 		HW3b.run();
-
 	}
 
 }
