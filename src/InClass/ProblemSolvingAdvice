@@ -1,0 +1,12 @@
+1: Find a similar problem
+2: ask someone else
+3: treat as a challenge and use incremental steps
+
+Example using Insertion Sort:
+		1. look at similar problems we understand
+			a. Selection Sort
+			b. Bubble Sort
+		2. break into smaller pieces
+			a. Take the next largest val vrs take the next value
+		3. Simplify
+	

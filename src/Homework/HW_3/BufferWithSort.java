@@ -19,9 +19,9 @@ public class BufferWithSort extends BufferOfDoubles {
 
 	private void bubble(int lengthOverWhichToBubble) {
 		for (int i = 0; i < lengthOverWhichToBubble; i++) {
-			if (arrayOfValues[i] > arrayOfValues[i+1]) {
+			if (arrayOfValues[i] > arrayOfValues[i + 1]) {
 				compareCount++;
-				swap(i, i+1);
+				swap(i, i + 1);
 			}
 		}
 	}
@@ -31,15 +31,16 @@ public class BufferWithSort extends BufferOfDoubles {
 		int maxIndex = 0;
 		for (int i = 0; i < lengthToConsider; i++) {
 			compareCount++;
-			if (arrayOfValues[i] > max)	{
+			if (arrayOfValues[i] > max) {
 				max = arrayOfValues[i];
 				maxIndex = i;
 			}
 		}
 		return maxIndex;
 	}
+
 	public void bubbleSort() {
-		for(int i = numberOfValues - 1; i > 1; i--) {
+		for (int i = numberOfValues - 1; i > 1; i--) {
 			bubble(i);
 		}
 	}
@@ -53,28 +54,28 @@ public class BufferWithSort extends BufferOfDoubles {
 	}
 
 	private void shiftRight(int indexToVacate, int sizeSoFar) {
-		double temp = arrayOfValues[sizeSoFar];
-		moveCount++;
-		for(int i = sizeSoFar; i > indexToVacate; i--) {
-			arrayOfValues[i] = arrayOfValues[i-1];
+		for (int i = sizeSoFar; i > indexToVacate; i--) {
+			arrayOfValues[i] = arrayOfValues[i - 1];
 			moveCount++;
 		}
-		arrayOfValues[indexToVacate] = temp;
-		moveCount++;
+		
 	}
 
 	private void addInOrder(double value, int lengthOfSortedData) {
 		int i = 0;
-		while (arrayOfValues[i] <= value && i < lengthOfSortedData) {
+		while (i < lengthOfSortedData && arrayOfValues[i] <= value) {
 			compareCount++;
 			i++;
 		}
 		if (i != lengthOfSortedData) {
 			shiftRight(i, lengthOfSortedData);
+			arrayOfValues[i] = value;
+			moveCount++;
 		}
 	}
+
 	public void insertionSort() {
-		for(int i = 1; i < numberOfValues; i++) {
+		for (int i = 1; i < numberOfValues; i++) {
 			addInOrder(arrayOfValues[i], i);
 		}
 

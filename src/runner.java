@@ -1,13 +1,9 @@
 import Homework.HW_1.*;
-import Homework.HW_2.*;
-import Homework.HW_3.*;
-import InClass.*;
-
-//This is just a class to facilitate running things
+import Homework.HW_5.*;
+import Homework.HW_4.*;
+import Homework.*;
 public class runner {
- 
 	public static void main(String[] args) {
-		HW3b.run();
+		HW5.run();
 	}
-
 }
