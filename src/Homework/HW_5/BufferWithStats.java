@@ -12,7 +12,7 @@ public class BufferWithStats extends BufferOfInts {
     public int getSum() {
         int sumOfValues = 0;
         for(int i = 0; i < numberOfValues; i++) {
-        	sumOfValues += i;
+        	sumOfValues += arrayOfValues[i];
         }
         return sumOfValues;
     }
