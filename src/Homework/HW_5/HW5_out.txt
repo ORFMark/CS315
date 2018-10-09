@@ -1,0 +1,18 @@
+Stack test
+3 * (4 + 2) = 18
+Queue test
+ 1 2 3 4
+Statistics test, run 1
+The max is 200
+The min is 1
+The sum is 102339
+The mean is 102.339
+The mode is 76
+The frequency of the mode is 13
+Statistics test, run 2
+The max is 200
+The min is 1
+The sum is 98372
+The mean is 98.372
+The mode is 39
+The frequency of the mode is 12

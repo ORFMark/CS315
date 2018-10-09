@@ -7,18 +7,14 @@ public class StackOfInts {
     }
 
     public boolean push(int value) {
-        if(stackBuffer.getNumberOfValues() < stackBuffer.getArrayLength()) {
-        	stackBuffer.insertAtIndex(value, 0);
-        	return true;
-        }
-        return false;
+        return stackBuffer.add(value);
     }
     
     public int pop() {
         // TODO: code to get the last added value,
-        // ... remove it from the buffer, and then return it.
-    	int value = stackBuffer.getValueAtIndex(0);
-    	stackBuffer.removeAtIndex(0);
+        int end = stackBuffer.getNumberOfValues() - 1;
+    	int value = stackBuffer.getValueAtIndex(end);
+    	stackBuffer.removeAtIndex(end);
         return value;
     }
 
