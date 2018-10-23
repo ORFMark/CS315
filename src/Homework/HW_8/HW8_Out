@@ -1,0 +1,13 @@
+Testing GoF iterator on array buffer
+ 17 8 -5 4
+Testing GoF iterator on singly linked list
+ 11 3 -9 64
+Testing GoF iterator on doubly linked list
+ 2 1918 -61 18 37 -25
+Testing Java iterator on doubly linked list
+ 2 1918 -61 18 37 -25
+
+Testing Java iterator remove function
+ Removing: 2 then leaving 1918
+ Removing: -61 and tail
+ -61 37 -25

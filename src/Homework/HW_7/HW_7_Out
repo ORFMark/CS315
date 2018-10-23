@@ -1,0 +1,20 @@
+Leslie Johnny Sally 
+Leslie		: RemoveHead()
+Johnny Sally 
+Sally		: RemoveTail()
+Johnny 
+Johnny		: RemoveTail()
+
+null		: RemoveHead()
+null		: RemoveTail()
+Done
+Johnny Sally Leslie 
+Johnny		: RemoveHead()
+Sally Leslie 
+Leslie		: RemoveTail()
+Sally 
+Sally		: RemoveTail()
+
+null		: RemoveHead()
+null		: RemoveTail()
+Done
