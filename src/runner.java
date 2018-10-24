@@ -6,8 +6,11 @@ import Homework.HW_5.*;
 import Homework.HW_6.Merger;
 import Homework.HW_4.*;
 import Homework.*;
+import InClass.BinaryTree;
 public class runner {
 	public static void main(String[] args) {
-		HW8.run(args);
+		BinaryTree tree = new BinaryTree(null);
+		tree.testPopulation();
+		tree.displayTree(tree.getRoot());
 	}
 }

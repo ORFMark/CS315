@@ -89,26 +89,33 @@ public class IterableDblLinkList extends DblLinkList {
 
 		@Override
 		public void remove() {
+			DblLink temp = null;
 			if (cursor != null) {
-				DblLink temp = cursor.getPrevious();
-				if (temp != null) {
+				if (cursor.getPrevious() != null) {
+					temp = cursor.getPrevious();
 					if (temp.getNext() != null && temp.getPrevious() != null) {
-						temp.getNext().setPrevious(temp.getPrevious());
 						temp.getPrevious().setNext(temp.getNext());
-					} else {
-						if (temp.getNext() == null) {
+						temp.getNext().setPrevious(temp.getPrevious());
+					}
+					else {
+						if (temp.getPrevious() != null) {
 							temp.getPrevious().setNext(null);
 							ourList.tail = temp.getPrevious();
 						}
-						if (temp.getPrevious() == null) {
+						if (temp.getNext() != null) {
 							temp.getNext().setPrevious(null);
 							ourList.head = temp.getNext();
 						}
 					}
 				}
-				else {
-					
-				}
+			} 
+			else if (ourList.head == ourList.tail) {
+				ourList.head = null;
+				ourList.tail = null;
+			}
+			else {
+				ourList.tail = ourList.tail.getPrevious();
+				ourList.tail.setNext(null);
 			}
 		}
 	}

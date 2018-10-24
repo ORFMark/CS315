@@ -12,6 +12,12 @@ public class BinaryNode {
 		left = null;
 		right = null;
 	}
+	BinaryNode() {
+		this.data = 0;
+		parent = null;
+		left = null;
+		right = null;
+	}
 	public BinaryNode getLeft() {
 		return left;
 	}

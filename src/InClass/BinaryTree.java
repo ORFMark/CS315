@@ -10,11 +10,23 @@ public class BinaryTree {
 	private BinaryNode root;
 
 
-	BinaryTree(BinaryNode root) {
+	public BinaryTree(BinaryNode root) {
+		this.root = root;
+	}
+
+	public BinaryNode getRoot() {
+		return root;
+	}
+
+	public void setRoot(BinaryNode root) {
 		this.root = root;
 	}
 
 	public boolean insertValue(int data, BinaryNode branch) {
+		if (branch == null) {
+			root = new BinaryNode(data);
+			return true;
+		}
 		if ( data > branch.getData()) {
 			if (branch.getRight() != null) {
 				branch = branch.getRight();
@@ -48,10 +60,24 @@ public class BinaryTree {
 		if(node.getLeft() != null) {
 			displayTree(node.getLeft());
 		}
-		System.out.print(node.getData());
+		System.out.print(node.getData() + ", ");
 		if(node.getRight() != null) {
 			displayTree(node.getRight());
 		}
+	}
+	
+	public void testPopulation() {
+		insertValue(30,root);
+		insertValue(40,root);
+		insertValue(20,root);
+		insertValue(18,root);
+		insertValue(26,root);
+		insertValue(12,root);
+		insertValue(39,root);
+		insertValue(19,root);
+		insertValue(17,root);
+		insertValue(47, root);
+		insertValue(24,root);
 	}
 	
 }
