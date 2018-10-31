@@ -79,6 +79,64 @@ public class BinaryTree {
 		insertValue(47, root);
 		insertValue(24,root);
 	}
+	public boolean find(BinaryNode n, int value) {
+		if (n == null) {
+			return false;
+		}
+		else if (value < n.getData()){
+			n = n.getLeft();
+			return find(n, value);
+		}
+		else if (value > n.getData()) {
+			n = n.getRight();
+			return find(n, value);
+		}
+		else {
+			return true;
+		}
+	}
+	public BinaryNode getMin(BinaryNode n) {
+		if (n != null) {
+			if (n.getLeft() == null) {
+				return n;
+			}
+			else {
+				return getMin(n.getLeft());
+			}
+		}
+		return null;
+	}
+	public BinaryNode getMax(BinaryNode n) {
+		if (n != null) {
+			if (n.getRight() == null) {
+				return n;
+			}
+			else {
+				return getMin(n.getRight());
+			}
+		}
+		return null;
+	}
+	
+	public void remove(BinaryNode r) {
+		if(r == root) {
+			root = getMin(root);
+		}
+		else if (r.getLeft() != null && r.getRight() == null){
+			BinaryNode tempR = r.getRight();
+			BinaryNode tempL = r.getLeft();
+			r = getMin(r);
+		}
+	}
+	public void test() {
+		testPopulation();
+		displayTree(root);
+		System.out.println();
+		System.out.println(find(root, root.getData()) + " " + find(root, 24) + " " + find(root, 52));
+		System.out.println("Removing the head");
+		remove(root);
+		displayTree(root);
+	}
 	
 }
 

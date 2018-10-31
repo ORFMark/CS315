@@ -1,8 +1,8 @@
 package Homework.HW_8;
 
 /**
- * @author <you>
- * @version 1.0 Homework assignment 8
+ * @author Mark Burrell burrelm1 @ my.erau.edu
+ * @version 1.3 Homework assignment 8
  */
 public class IterableDblLinkList extends DblLinkList {
 
