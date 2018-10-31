@@ -3,6 +3,7 @@ package Homework.HW_9;
 public class Tree {
 	protected Node root;
 
+	// node class for use with the tree, contains the pointers and stuff
 	protected class Node {
 		protected int data;
 		protected Node left;
@@ -20,14 +21,18 @@ public class Tree {
 		}
 	}
 
+	// basic constructor
 	public Tree() {
 		root = null;
 	}
 
+	// deletes the tree
 	public void clear() {
 		root = null;
 	}
 
+	// deals with adding nodes to the tree. duplicates are allowed and go to the
+	// right
 	public void insert(int value) {
 		Node newNode = new Node(value);
 		if (root == null)
@@ -56,6 +61,7 @@ public class Tree {
 		}
 	}
 
+	// publicly veiwable display (not recursive)
 	public void display() {
 		display(root);
 		System.out.println();
@@ -72,6 +78,7 @@ public class Tree {
 		}
 	}
 
+	// publicly veiwable, non-recursive min.
 	public int getMin() {
 		if (root == null)
 			return 0;
@@ -79,6 +86,7 @@ public class Tree {
 			return getMin(root);
 	}
 
+	// finds the min by going as a far left as possible
 	private int getMin(Node node) {
 		if (node != null) {
 			if (node.left != null) {
@@ -98,12 +106,12 @@ public class Tree {
 			return getMax(root);
 	}
 
+	// finds the max by going as far right as possible
 	private int getMax(Node node) {
 		if (node != null) {
 			if (node.right != null) {
 				return getMax(node.right);
-			}
-			else {
+			} else {
 				return node.data;
 			}
 		}
@@ -121,14 +129,11 @@ public class Tree {
 		// else search right (return that result)
 		if (node == null) {
 			return false;
-		}
-		else if (node.data == value) {
+		} else if (node.data == value) {
 			return true;
-		}
-		else if (value < node.data) {
+		} else if (value < node.data) {
 			return find(node.left, value);
-		}
-		else if (value > node.data) {
+		} else if (value > node.data) {
 			return find(node.right, value);
 		}
 		return false;
@@ -141,51 +146,29 @@ public class Tree {
 		// else node to replace must be deeper in the tree
 		// call recursive remove
 		/*
-		Node temp = null;
-		if (root == null) {
-			return false;
-		}
-		else if (root.data == value) {
-			temp = getReplacement(root);
-			temp.right = root.right;
-			temp.left = root.left;
-			root = temp;
-		}
-		else {
-			temp = root;
-			while (temp != null) {
-				if (value < temp.data) {
-					temp = temp.left;
-				}
-				else if (value > temp.data) {
-					temp = temp.right;
-				}
-				else {
-					break;
-				}
-			}
-			if (temp != null) {
-				Node replacement = getReplacement(temp);
-				replacement.left;
-			}
-		}
-		*/
+		 * Node temp = null; if (root == null) { return false; } else if (root.data ==
+		 * value) { temp = getReplacement(root); temp.right = root.right; temp.left =
+		 * root.left; root = temp; } else { temp = root; while (temp != null) { if
+		 * (value < temp.data) { temp = temp.left; } else if (value > temp.data) { temp
+		 * = temp.right; } else { break; } } if (temp != null) { Node replacement =
+		 * getReplacement(temp); replacement.left; } }
+		 */
 
 		return false;
 	}
+
+	// gets the replacement node of a node to be replaced
 	private Node getReplacement(Node node) {
 		Node current = null;
-		if(node.right != null) {
+		if (node.right != null) {
 			current = node.right;
-			while(current.left != null) {
+			while (current.left != null) {
 				current = current.left;
 			}
 			return current;
-		}
-		else if (current.left != null) {
+		} else if (current.left != null) {
 			return current.left;
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
