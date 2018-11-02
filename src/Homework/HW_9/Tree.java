@@ -233,13 +233,13 @@ public class Tree {
 			min.left = null;
 			min.right = null;
 			if (parent.right != null) {
-				System.out.print("|");
+				//System.out.print("|");
 				parent.data = parent.right.data;
 				parent.left = parent.right.left;
 				parent.right = parent.right.right;
 			}
 			else {
-				System.out.print("!");
+				//System.out.print("!");
 				parent = null;
 			}
 			return min;
@@ -250,6 +250,21 @@ public class Tree {
 
 	public void displayBreadthFirst() {
 		// use a queue to create the list of Nodes in BFT order
-
+		IterableDblLinkList queue = new IterableDblLinkList();
+		Node current = null;
+		queue.insertAtTail(new DblLink(root)); 
+		GoFIterator iter = queue.getGoFIterator();
+		for(iter.first(); !iter.isDone(); iter.next()) {
+			current = iter.currentItem();
+			if (current.left != null) {
+				queue.insertAtTail(new DblLink(current.left));
+			}
+			if (current.right != null) {
+				queue.insertAtTail(new DblLink(current.right));
+			}
+		}
+		for(iter.first(); !iter.isDone(); iter.next()) {
+			System.out.print(iter.currentItem().data + " ");
 	}
+}
 }

@@ -23,7 +23,7 @@ public class TestableTree extends DrawableTree {
 			System.out.print(i + " (" + value + "): ");
 			t.remove(value);
 			t.display();
-			t.displayTree();
+			//t.displayTree();
 		}
 		repopulateTree(t);
 		System.out.println("Testing print breadth first: ");
