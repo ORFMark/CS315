@@ -1,5 +1,6 @@
 package Homework.HW_9;
-
+//Worked with Drew Grobmier Day one and Three
+//Worked with Andrea Gray, Day 2
 public class Tree {
 	protected Node root;
 
@@ -204,14 +205,18 @@ public class Tree {
 
 	private Node getReplacement(Node goner) {
 		if (goner.right != null) {
-			if (goner.left != null) {
+			if (goner.left != null && goner.right.left != null) {
 				Node replacement = extricateSubtreeMin(goner.right);
 				replacement.left = goner.left;
 				replacement.right = goner.right;
 				return replacement;
 			}
 			else {
-				return goner.right;
+				//System.out.print("Replacing with right");
+				Node temp= goner.right;
+				temp.left = goner.left;
+				goner.right = goner.right.right;
+				return temp;
 			}
 		}
 		else if (goner.left != null) {
@@ -234,7 +239,14 @@ public class Tree {
 			return min;
 		}
 		else  {
-			return parent.left;
+			if (parent.right != null) {
+				Node min = parent;
+				parent = parent.right;
+				return min;
+			}
+			else {
+				return new Node(99);
+			}
 		}
 	}
 
@@ -257,6 +269,6 @@ public class Tree {
 		}
 		for(iter.first(); !iter.isDone(); iter.next()) {
 			System.out.print(iter.currentItem().data + " ");
+		}
 	}
-}
 }
