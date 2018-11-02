@@ -140,37 +140,70 @@ public class Tree {
 	}
 
 	public boolean remove(int value) {
-		// if tree is empty
-		// else if root is the node to replace
-		// getReplacement and make it the new root
-		// else node to replace must be deeper in the tree
-		// call recursive remove
-		/*
-		 * Node temp = null; if (root == null) { return false; } else if (root.data ==
-		 * value) { temp = getReplacement(root); temp.right = root.right; temp.left =
-		 * root.left; root = temp; } else { temp = root; while (temp != null) { if
-		 * (value < temp.data) { temp = temp.left; } else if (value > temp.data) { temp
-		 * = temp.right; } else { break; } } if (temp != null) { Node replacement =
-		 * getReplacement(temp); replacement.left; } }
-		 */
+       if (root == null) {
+    	   return false;
+       }
+       else if (!find(value)) {
+    	   return false;
+       }
+       else if (root.data == value) {
+    	   Node replacement = getReplacement(root);
+    	   replacement.left = root.left;
+    	   if (replacement.right == null) {
+    		   replacement.right = root.right;
+    	   }
+       }
+       else {
+    	   return remove(root, value);
+       }
+        return false;
+    }
 
-		return false;
-	}
+    private boolean remove(Node parentNode, int value) {
+        if (value < parentNode.data) {
+        	if (parentNode.left != null)
+        	parentNode = parentNode.left;
+        	return remove(parentNode.left, value);
+        }
+        else if (value > parentNode.data) {
+        	parentNode = parentNode.right;
+        	return remove(parentNode.right, value);
+        } 
+        else {
+        	Node replacement = getReplacement(parentNode);
+        	replacement.left = parentNode.left;
+        	replacement.right = parentNode.right;
+        	parentNode = replacement;
+        	return true;
+        }
+    }
 
-	// gets the replacement node of a node to be replaced
-	private Node getReplacement(Node node) {
-		Node current = null;
-		if (node.right != null) {
-			current = node.right;
-			while (current.left != null) {
-				current = current.left;
-			}
-			return current;
-		} else if (current.left != null) {
-			return current.left;
-		} else {
-			return null;
-		}
-	}
-
+    private Node getReplacement(Node goner) {
+        // find suitable replacement and prepare it for new role
+    	if (goner.right != null) {
+    		goner = goner.right;
+    		Node parent = goner;
+    		while (goner.left != null) {
+    			
+    			goner = goner.left;
+    		}
+    		if (parent != goner) {
+    			if (goner.right != null) {
+    				parent.left = goner.right;
+    			}
+    			else {
+    				parent.left = null;
+    			}
+    		}
+    		return goner;
+    	}
+    	else if (goner.left != null) {
+    		return goner.left;
+    	}
+            return null;
+    }
+    
+    private Node extricateSubtreeMin(Node parent) {
+        return null;
+    }
 }

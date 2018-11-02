@@ -17,15 +17,14 @@ public class TestableTree extends DrawableTree {
         System.out.println("Min: " + t.getMin());
         System.out.println("Find 37: " + t.find(37));
         System.out.println("Find 38: " + t.find(38));
-        /*
-         * for (int i = 1; i <= count; i++) {
-         *     repopulateTree(t); int value =
-         *     t.getNthValue(i);
-         *     System.out.print(i + " (" + value + "): ");
-         *     t.remove(value);
-         *     t.display();
-         * }
-         */
+          for (int i = 1; i <= count; i++) {
+              repopulateTree(t); int value =
+              t.getNthValue(i);
+              System.out.print(i + " (" + value + "): ");
+              t.remove(value);
+              t.display();
+          }
+         
     }
 
     public static int repopulateTree(TestableTree t) {
