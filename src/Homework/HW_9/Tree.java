@@ -139,71 +139,117 @@ public class Tree {
 		return false;
 	}
 
+	// For remove, the parent must be known for replacing its child
+	// Replacing the root is special because its parent is not a node
 	public boolean remove(int value) {
-       if (root == null) {
-    	   return false;
-       }
-       else if (!find(value)) {
-    	   return false;
-       }
-       else if (root.data == value) {
-    	   Node replacement = getReplacement(root);
-    	   replacement.left = root.left;
-    	   if (replacement.right == null) {
-    		   replacement.right = root.right;
-    	   }
-       }
-       else {
-    	   return remove(root, value);
-       }
-        return false;
-    }
+		// if tree is empty
+		// else if root is the node to replace
+		//     getReplacement and make it the new root
+		// else node to replace must be deeper in the tree
+		//     call recursive remove to replace a deeper node
+		if(root == null) {
+			System.out.println("Empty Tree");
+			return false;
+		}
+		else if (root.data == value) {
+			Node replace = getReplacement(root);
+			replace.left = root.left;
+			replace.right = root.right;
+			root = replace;
+			return true;
+		}
+		else {
+			return remove(root, value);
+		}
+	}
 
-    private boolean remove(Node parentNode, int value) {
-        if (value < parentNode.data) {
-        	if (parentNode.left != null)
-        	parentNode = parentNode.left;
-        	return remove(parentNode.left, value);
-        }
-        else if (value > parentNode.data) {
-        	parentNode = parentNode.right;
-        	return remove(parentNode.right, value);
-        } 
-        else {
-        	Node replacement = getReplacement(parentNode);
-        	replacement.left = parentNode.left;
-        	replacement.right = parentNode.right;
-        	parentNode = replacement;
-        	return true;
-        }
-    }
+	private boolean remove(Node parentNode, int value) {
+		if(parentNode == null) {
+			return false;
+		}
+		else if (parentNode.data < value) {
+			if (parentNode.right != null) {
+				if (parentNode.right.data == value) {
+					Node replacement = getReplacement(parentNode.right);
+					parentNode.right = replacement;
+					return true;
+				}
+				else {
+					return remove(parentNode.right, value);
+				}
+			}
+			else {
+				return false;
+			}
+		}
+		else if(parentNode.data > value) {
+			if (parentNode.left != null) {
+				if (parentNode.left.data == value) {
+					Node replacement = getReplacement(parentNode.left);
+					parentNode.left = replacement;
+					return true;
+				}
+				else {
+					return remove(parentNode.left, value);
+				}
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
 
-    private Node getReplacement(Node goner) {
-        // find suitable replacement and prepare it for new role
-    	if (goner.right != null) {
-    		goner = goner.right;
-    		Node parent = goner;
-    		while (goner.left != null) {
-    			
-    			goner = goner.left;
-    		}
-    		if (parent != goner) {
-    			if (goner.right != null) {
-    				parent.left = goner.right;
-    			}
-    			else {
-    				parent.left = null;
-    			}
-    		}
-    		return goner;
-    	}
-    	else if (goner.left != null) {
-    		return goner.left;
-    	}
-            return null;
-    }
-    
-    private Node extricateSubtreeMin(Node parent) {
-        return null;
-    }
+	private Node getReplacement(Node goner) {
+		if (goner.right != null) {
+			Node replacement = extricateSubtreeMin(goner.right);
+			replacement.left = goner.left;
+			replacement.right = goner.right;
+			return replacement;
+		}
+		else if (goner.left != null) {
+			return goner.left;
+		}
+		else {
+			return null;
+		}
+
+	}
+
+	private Node extricateSubtreeMin(Node parent) {
+		// get subtree's min node and fix subtree where removed
+		if(parent.left != null && parent.left.left != null) {
+			return extricateSubtreeMin(parent.left);
+		}
+		else if (parent.left != null && parent.left.left == null) {
+			Node min = parent.left;
+			parent.left = min.right;
+			return min;
+		}
+		else  {
+			Node min = new Node(99);
+			min.left = null;
+			min.right = null;
+			if (parent.right != null) {
+				System.out.print("|");
+				parent.data = parent.right.data;
+				parent.left = parent.right.left;
+				parent.right = parent.right.right;
+			}
+			else {
+				System.out.print("!");
+				parent = null;
+			}
+			return min;
+		}
+	}
+
+
+
+	public void displayBreadthFirst() {
+		// use a queue to create the list of Nodes in BFT order
+
+	}
 }
