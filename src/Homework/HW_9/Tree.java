@@ -204,10 +204,15 @@ public class Tree {
 
 	private Node getReplacement(Node goner) {
 		if (goner.right != null) {
-			Node replacement = extricateSubtreeMin(goner.right);
-			replacement.left = goner.left;
-			replacement.right = goner.right;
-			return replacement;
+			if (goner.left != null) {
+				Node replacement = extricateSubtreeMin(goner.right);
+				replacement.left = goner.left;
+				replacement.right = goner.right;
+				return replacement;
+			}
+			else {
+				return goner.right;
+			}
 		}
 		else if (goner.left != null) {
 			return goner.left;
@@ -229,20 +234,7 @@ public class Tree {
 			return min;
 		}
 		else  {
-			Node min = new Node(99);
-			min.left = null;
-			min.right = null;
-			if (parent.right != null) {
-				//System.out.print("|");
-				parent.data = parent.right.data;
-				parent.left = parent.right.left;
-				parent.right = parent.right.right;
-			}
-			else {
-				//System.out.print("!");
-				parent = null;
-			}
-			return min;
+			return parent.left;
 		}
 	}
 
