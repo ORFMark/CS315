@@ -73,7 +73,7 @@ public class Tree {
 		if (node.left != null) {
 			display(node.left);
 		}
-		System.out.print(Integer.toString(node.data) + ", ");
+		System.out.print(Integer.toString(node.data) + " ");
 		if (node.right != null) {
 			display(node.right);
 		}
@@ -149,7 +149,7 @@ public class Tree {
 		// else node to replace must be deeper in the tree
 		//     call recursive remove to replace a deeper node
 		if(root == null) {
-			System.out.println("Empty Tree");
+			//System.out.println("Empty Tree");
 			return false;
 		}
 		else if (root.data == value) {
@@ -179,9 +179,6 @@ public class Tree {
 					return remove(parentNode.right, value);
 				}
 			}
-			else {
-				return false;
-			}
 		}
 		else if(parentNode.data > value) {
 			if (parentNode.left != null) {
@@ -194,13 +191,8 @@ public class Tree {
 					return remove(parentNode.left, value);
 				}
 			}
-			else {
-				return false;
-			}
 		}
-		else {
-			return false;
-		}
+		return false;
 	}
 
 	private Node getReplacement(Node goner) {
@@ -239,14 +231,9 @@ public class Tree {
 			return min;
 		}
 		else  {
-			if (parent.right != null) {
-				Node min = parent;
-				parent = parent.right;
-				return min;
-			}
-			else {
-				return new Node(99);
-			}
+			Node min = parent;
+			parent = parent.right;
+			return min;
 		}
 	}
 
@@ -269,6 +256,39 @@ public class Tree {
 		}
 		for(iter.first(); !iter.isDone(); iter.next()) {
 			System.out.print(iter.currentItem().data + " ");
+		}
+		System.out.println();
+	}
+
+
+	public int getDepth() {
+		if (root == null) {
+			return -1;
+		}
+		else {
+			return getDepth(root, 0);
+		}
+	}
+
+	private int getDepth(Node current, int currentDepth) {
+		int leftDepth = 0;
+		int rightDepth = 0;
+		if (current.right == null && current.left == null) {
+			return currentDepth;
+		}
+		else {
+			if(current.left != null) {
+				leftDepth = getDepth(current.left, currentDepth+1);
+			}
+			if (current.right != null) {
+				rightDepth = getDepth(current.right, currentDepth+1);
+			}
+			if (rightDepth < leftDepth) {
+				return leftDepth;
+			}
+			else {
+				return rightDepth;
+			}
 		}
 	}
 }
