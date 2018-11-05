@@ -64,7 +64,9 @@ public class Tree {
 
 	// publicly veiwable display (not recursive)
 	public void display() {
-		display(root);
+		if (root != null) {
+			display(root);
+		}
 		System.out.println();
 	}
 
@@ -241,23 +243,25 @@ public class Tree {
 
 	public void displayBreadthFirst() {
 		// use a queue to create the list of Nodes in BFT order
-		IterableDblLinkList queue = new IterableDblLinkList();
-		Node current = null;
-		queue.insertAtTail(new DblLink(root)); 
-		GoFIterator iter = queue.getGoFIterator();
-		for(iter.first(); !iter.isDone(); iter.next()) {
-			current = iter.currentItem();
-			if (current.left != null) {
-				queue.insertAtTail(new DblLink(current.left));
+		if(root != null) {
+			IterableDblLinkList queue = new IterableDblLinkList();
+			Node current = null;
+			queue.insertAtTail(new DblLink(root)); 
+			GoFIterator iter = queue.getGoFIterator();
+			for(iter.first(); !iter.isDone(); iter.next()) {
+				current = iter.currentItem();
+				if (current.left != null) {
+					queue.insertAtTail(new DblLink(current.left));
+				}
+				if (current.right != null) {
+					queue.insertAtTail(new DblLink(current.right));
+				}
 			}
-			if (current.right != null) {
-				queue.insertAtTail(new DblLink(current.right));
+			for(iter.first(); !iter.isDone(); iter.next()) {
+				System.out.print(iter.currentItem().data + " ");
 			}
+			System.out.println();
 		}
-		for(iter.first(); !iter.isDone(); iter.next()) {
-			System.out.print(iter.currentItem().data + " ");
-		}
-		System.out.println();
 	}
 
 
