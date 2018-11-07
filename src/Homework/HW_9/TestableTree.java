@@ -26,8 +26,10 @@ public class TestableTree extends DrawableTree {
 			//t.displayTree();
 		}
 		repopulateTree(t);
-		System.out.println("Testing print breadth first: ");
+		System.out.println("Testing Mark's print breadth first: ");
 		t.displayBreadthFirst();
+		System.out.println("Testing Will's print breadth first: ");
+		t.displayBreadthFirstW();
 		//System.out.println("The depth of the tree is " + Integer.toString(t.getDepth()));
 	}
 
