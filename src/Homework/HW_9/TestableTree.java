@@ -23,14 +23,14 @@ public class TestableTree extends DrawableTree {
 			System.out.print(i + " (" + value + "): ");
 			t.remove(value);
 			t.display();
-			//t.displayTree();
+			t.displayTree();
 		}
 		repopulateTree(t);
 		System.out.println("Testing Mark's print breadth first: ");
 		t.displayBreadthFirst();
 		System.out.println("Testing Will's print breadth first: ");
 		t.displayBreadthFirstW();
-		//System.out.println("The depth of the tree is " + Integer.toString(t.getDepth()));
+		System.out.println("The depth of the tree is " + Integer.toString(t.getDepth()));
 	}
 
 	public static int repopulateTree(TestableTree t) {
