@@ -1,81 +1,77 @@
 package InClass;
+/**
+ * @author      Mark Burrell burrelm1 @ my.erau.edu
+ * @version     1.0 Homework assignment 7
+ */
 
 public class LinkedList {
-	//chap 5 book
-	//space created as you go
-	private class Link {
-		private int data;
-		private Link next;
-		
-		Link() {
-			data = 0;
-			next = null;
-		}
-		Link(int d) {
-			data = d;
-			next = null;
-		}
-		Link(int d, Link n) {
-			data = d;
-			next = n;
-		}
-		public int getData()
-		{
-			return data;
-		}
-		
-		public void setData(int d) {
-			data = d;
-		}
-		public Link getNext()
-		{
-			return next;
-		}
-		public void setNext(Link n) {
-			next = n;
-		}
-		@Override
-		public String toString() {
-			return Integer.toString(data);
-		}
-	}
-	Link head;
-	Link tail;
-	
-	LinkedList() {
+	SingleLink head;
+
+	public LinkedList() {
 		head = null;
-		tail = null;
 	}
-	public void insertAsHead(Link newHead) {
-			newHead.setNext(head);
-			head = newHead;
+
+	public boolean isEmpty() {
+		// TODO
+		return head == null;
 	}
-	public void insertAsTail(Link newTail) {
-		tail.setNext(newTail);
-		tail = newTail;
-		tail.setNext(null);
+
+	public void insertAsHead(SingleLink newLink) {
+		// TODO
+		newLink.setNext(head);
+		head = newLink;
 	}
-	
-	public void insert(Link newLink, int key) {
-		Link test = new Link(0, head);
-		while(test.getNext() != null) {
-			test = test.getNext();
-			if (test.getData() == key) {
-				
-			}
+
+	public SingleLink removeHead() {
+		// TODO
+		if(!isEmpty()) {
+			SingleLink oldHead = head;
+			head = head.getNext();
+			return oldHead;
+		}
+		else {
+			return null;
 		}
 	}
-	@Override
-	public String toString() {
-		String list = null;
-		for(Link current = head; current != null; current = current.getNext()) {
-			if(list == null) {
-				list = current.toString() + ", ";
+
+	public SingleLink removeTail() {
+		SingleLink oldTail;
+		SingleLink i = head;
+		if(!isEmpty()) {
+			if(i.getNext() != null) {
+				while(i.getNext().getNext() != null) {
+					i = i.getNext();
+				}
+				oldTail = i.getNext();
+				i.setNext(null);
+				return oldTail;
 			}
 			else {
-				list += current.toString() + ", ";
+				oldTail = head;
+				head = null;
+				return oldTail;
 			}
 		}
-		return list;
+		else {
+			return null;
+		}
 	}
+	
+	public boolean hasValue(String value) {
+		SingleLink current = head;
+		while(current != null) {
+			if (current.toString().equals(value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void display() {
+		// TODO
+		for(SingleLink i = head; i != null; i = i.getNext()) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+	}
+
 }
