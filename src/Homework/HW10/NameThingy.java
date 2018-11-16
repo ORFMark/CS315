@@ -1,11 +1,11 @@
 package Homework.HW10;
 
-public class HashTableString implements Comparable<HashTableString> {
+public class NameThingy implements Comparable<NameThingy> {
     private String name;
     // next pointer to support separate chaining
-    protected HashTableString next;
+    protected NameThingy next;
 
-    public HashTableString(String name) {
+    public NameThingy(String name) {
         this.name = name;
         next = null;
     }
@@ -15,11 +15,11 @@ public class HashTableString implements Comparable<HashTableString> {
     }
 
     @Override
-    public int compareTo(HashTableString other) {
+    public int compareTo(NameThingy other) {
         return name.compareTo(other.name);
     }
 
-    public boolean equals(HashTableString other) {
+    public boolean equals(NameThingy other) {
         return name.equals(other.name);
     }
 

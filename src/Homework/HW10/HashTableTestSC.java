@@ -10,7 +10,7 @@ public class HashTableTestSC extends HashTableSC implements ChainTest {
     public int reportMaxChain() {
         int maxChainLength = 0;
         int maxChainLocation = 0;
-        HashTableString link;
+        NameThingy link;
         for (int i = 0; i < size; i++) {
             int count = 0;
             for (link = table[i]; link != null; link = link.next)
@@ -26,7 +26,7 @@ public class HashTableTestSC extends HashTableSC implements ChainTest {
 
     @Override
     public void displayChain(int i) {
-        for (HashTableString link = table[i]; link != null; link = link.next)
+        for (NameThingy link = table[i]; link != null; link = link.next)
             System.out.println(
                     "  hash [" + link.getHash(size) + "]: " + link.getName());
     }

@@ -1,18 +1,18 @@
 package Homework.HW10;
 
 public abstract class HashTable {
-    protected HashTableString table[];
+    protected NameThingy table[];
     protected int size;
-    protected int numberOfItems;
+    protected int numberOfThingies;
     
     public HashTable(int size) {
-        table = new HashTableString[size];
+        table = new NameThingy[size];
         this.size = size;
-        numberOfItems = 0;
+        numberOfThingies = 0;
     }
     
     public int getNumberOfThingies() {
-        return numberOfItems;
+        return numberOfThingies;
     }
     
     public abstract void insert(String name);

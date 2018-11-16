@@ -8,57 +8,54 @@ public class HashTableSC extends HashTable {
 
 	@Override
 	public void insert(String name) {
-		HashTableString newString = new HashTableString(name);
+		NameThingy newString = new NameThingy(name);
 		int hash = newString.getHash(size);
 		if (table[hash] == null) {
 			table[hash] = newString;
 		} else {
-			HashTableString current = table[hash];
+			NameThingy current = table[hash];
 			while (current.next != null) {
 				current = current.next;
 			}
 			current.next = newString;
 
 		}
-		numberOfItems++;
+		numberOfThingies++;
 	}
 
 	@Override
 	public boolean find(String name) {
-		HashTableString stringToFind = new HashTableString(name);
+		NameThingy stringToFind = new NameThingy(name);
 		int hash = stringToFind.getHash(size);
-		if (table[hash] == null) {
-			return false;
-		} else {
-			HashTableString location = table[hash];
-			while (location != null) {
-				if (table[hash].equals(stringToFind)) {
-					return true;
-				}
-				else {
-					location = location.next;
-				}
-				
+		NameThingy current = table[hash];
+		while (current != null) {
+			if (current.equals(stringToFind)) {
+				return true;
 			}
-			return false;
+			else {
+				current = current.next;
+			}
 		}
+		return false;
+		
 	}
 
 	@Override
 	public boolean remove(String name) {
-		HashTableString stringToRemove = new HashTableString(name);
+		NameThingy stringToRemove = new NameThingy(name);
 		int hash = stringToRemove.getHash(size);
 		if (table[hash] != null) {
-
 			if (table[hash].equals(stringToRemove)) {
 				table[hash] = table[hash].next;
+				numberOfThingies--;
 				return true;
 			} else {
-				HashTableString current = table[hash].next;
-				HashTableString previous = table[hash];
+				NameThingy current = table[hash].next;
+				NameThingy previous = table[hash];
 				while (current != null) {
 					if (current.equals(stringToRemove)) {
 						previous.next = current.next;
+						numberOfThingies--;
 						return true;
 					}
 					else {

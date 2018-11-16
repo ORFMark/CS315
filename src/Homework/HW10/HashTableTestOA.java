@@ -7,7 +7,7 @@ public class HashTableTestOA extends HashTableOA implements ChainTest {
     }
 
     public int reportMaxChain() {
-        if (numberOfItems >= size)
+        if (numberOfThingies >= size)
             return size;
         int maxChainLength = 0;
         int maxChainLocation = 0;

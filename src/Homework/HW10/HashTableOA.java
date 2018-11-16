@@ -9,35 +9,33 @@ public class HashTableOA extends HashTable {
 	@Override
 	public void insert(String name) {
 		// Protect against filling table, leaving at least 1 null
-		if (numberOfItems >= (size - 1))
+		if (numberOfThingies >= (size - 1))
 			return;
 		// TODO Auto-generated method stub
-		HashTableString nameToInsert = new HashTableString(name);
+		NameThingy nameToInsert = new NameThingy(name);
 		int hash = nameToInsert.getHash(size);
 		if (table[hash] == null) {
 			table[hash] = nameToInsert;
-			numberOfItems++;
+			numberOfThingies++;
 		} else {
-			int oldHash = hash;
 			hash++;
 			while (table[hash] != null) {
-				if (oldHash == hash) {
-					return;
-				} else if (hash > size) {
+				if (hash > size) {
 					hash = 0;
 				} else {
 					hash++;
 				}
 			}
 			table[hash] = nameToInsert;
-			numberOfItems++;
+			numberOfThingies++;
 		}
-
 	}
+
+
 
 	@Override
 	public boolean find(String name) {
-		HashTableString stringToFind = new HashTableString(name);
+		NameThingy stringToFind = new NameThingy(name);
 		int hash = stringToFind.getHash(size);
 		//System.out.println(name + " Should be found at or near " + hash + "Which is " + table[hash]);
 		if (table[hash] != null) {
@@ -46,7 +44,7 @@ public class HashTableOA extends HashTable {
 					return true;
 				}
 				hash++;
-				if (hash > size) {
+				if (hash >= size) {
 					hash = 0;
 				}
 			}
@@ -56,11 +54,11 @@ public class HashTableOA extends HashTable {
 
 	@Override
 	public boolean remove(String name) {
-		HashTableString nameToRemove = new HashTableString(name);
+		NameThingy nameToRemove = new NameThingy(name);
 		int hash = nameToRemove.getHash(size);
 		while (table[hash] != null)  {
 			if (table[hash].equals(nameToRemove)) {
-				numberOfItems--;
+				numberOfThingies--;
 				remove(hash);
 				return true;
 			}

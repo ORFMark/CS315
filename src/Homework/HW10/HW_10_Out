@@ -8,14 +8,14 @@ Max Chain length is: 4
   hash [88]: Samir
 
 Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
-true false false false true true false
+true true true true true true false
 
 Removing Moisse, Juan, and Samir.
   hash [88]: Herahd
   hash [88]: Reyansh
 
 Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
-true false false false true true false
+true false true false true true false
 
 *** Open Address Hash Table ***
 HashTable holds 4130 names.
