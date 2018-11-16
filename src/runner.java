@@ -12,6 +12,6 @@ import Homework.HW_1.*;
 import Homework.HW10.*;
 public class runner {
 	public static void main(String[] args) {
-		Test.run(args);
+		fullTest.run(args);
 	}
 }

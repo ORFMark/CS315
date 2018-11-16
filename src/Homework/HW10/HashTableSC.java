@@ -1,5 +1,9 @@
 package Homework.HW10;
 
+/*
+ * mostly Generated on my own, refined with the help of Will G. and Drew Grobmeir
+ */
+
 public class HashTableSC extends HashTable {
 
 	public HashTableSC(int size) {
@@ -10,16 +14,8 @@ public class HashTableSC extends HashTable {
 	public void insert(String name) {
 		NameThingy newString = new NameThingy(name);
 		int hash = newString.getHash(size);
-		if (table[hash] == null) {
-			table[hash] = newString;
-		} else {
-			NameThingy current = table[hash];
-			while (current.next != null) {
-				current = current.next;
-			}
-			current.next = newString;
-
-		}
+		newString.next = table[hash];
+		table[hash] = newString;
 		numberOfThingies++;
 	}
 

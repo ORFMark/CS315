@@ -1,5 +1,8 @@
 package Homework.HW10;
 
+/*
+ * mostly Generated on my own, refined with the help 
+ */
 public class HashTableOA extends HashTable {
 
 	public HashTableOA(int size) {
