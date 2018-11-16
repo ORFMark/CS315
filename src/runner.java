@@ -1,4 +1,3 @@
-import Homework.HW_1.*;
 import Homework.HW_8.*;
 import Homework.HW_9.TestableTree;
 import Homework.HW_7.*;
@@ -9,8 +8,10 @@ import Homework.HW_4.*;
 import Homework.*;
 import Homework.HW_9.*;
 import InClass.BinaryTree;
+import Homework.HW_1.*;
+import Homework.HW10.*;
 public class runner {
 	public static void main(String[] args) {
-		TestableTree.run(args);
+		Test.run(args);
 	}
 }

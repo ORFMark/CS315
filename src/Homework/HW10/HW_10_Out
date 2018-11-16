@@ -1,0 +1,65 @@
+
+*** Separate Chain Hash Table ***
+HashTable holds 4130 names.
+Max Chain length is: 4
+  hash [88]: Herahd
+  hash [88]: Juan
+  hash [88]: Reyansh
+  hash [88]: Samir
+
+Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
+true false false false true true false
+
+Removing Moisse, Juan, and Samir.
+  hash [88]: Herahd
+  hash [88]: Reyansh
+
+Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
+true false false false true true false
+
+*** Open Address Hash Table ***
+HashTable holds 4130 names.
+Max Chain length is: 18
+  hash: 9602 at [9602]: Kassia
+  hash: 9603 at [9603]: Fernando
+  hash: 9603 at [9604]: Leroy
+  hash: 9605 at [9605]: Brayden
+  hash: 9606 at [9606]: Callum
+  hash: 9602 at [9607]: Moisse
+  hash: 9608 at [9608]: Pawnee
+  hash: 9605 at [9609]: Saul
+  hash: 9606 at [9610]: Skyla
+  hash: 9611 at [9611]: Marjorie
+  hash: 9612 at [9612]: Benedita
+  hash: 9603 at [9613]: Uriel
+  hash: 9614 at [9614]: Anneke
+  hash: 9614 at [9615]: Christiaan
+  hash: 9615 at [9616]: Lotus
+  hash: 9616 at [9617]: Maksim
+  hash: 9612 at [9618]: Venedikt
+  hash: 9607 at [9619]: Zan
+
+Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
+true true true true true true false
+
+Removing Moisse, Juan, and Samir.
+  hash: 9602 at [9602]: Kassia
+  hash: 9603 at [9603]: Fernando
+  hash: 9603 at [9604]: Leroy
+  hash: 9605 at [9605]: Brayden
+  hash: 9606 at [9606]: Callum
+  hash: 9605 at [9607]: Saul
+  hash: 9608 at [9608]: Pawnee
+  hash: 9606 at [9609]: Skyla
+  hash: 9603 at [9610]: Uriel
+  hash: 9611 at [9611]: Marjorie
+  hash: 9612 at [9612]: Benedita
+  hash: 9612 at [9613]: Venedikt
+  hash: 9614 at [9614]: Anneke
+  hash: 9614 at [9615]: Christiaan
+  hash: 9615 at [9616]: Lotus
+  hash: 9616 at [9617]: Maksim
+  hash: 9607 at [9618]: Zan
+
+Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
+true false true false true true false
