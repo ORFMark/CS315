@@ -12,6 +12,7 @@ import Homework.HW_1.*;
 import Homework.HW10.*;
 public class runner {
 	public static void main(String[] args) {
-		fullTest.runVanHilstTest(args);
+		fullTest.runFullTest(args);
+		//fullTest.runVanHilstTest(args);
 	}
 }
