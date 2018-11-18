@@ -2,17 +2,17 @@
 *** Separate Chain Hash Table ***
 HashTable holds 4130 names.
 Max Chain length is: 4
-  hash [88]: Herahd
-  hash [88]: Juan
-  hash [88]: Reyansh
   hash [88]: Samir
+  hash [88]: Reyansh
+  hash [88]: Juan
+  hash [88]: Herahd
 
 Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
 true true true true true true false
 
 Removing Moisse, Juan, and Samir.
-  hash [88]: Herahd
   hash [88]: Reyansh
+  hash [88]: Herahd
 
 Finding Zan, Moisse, Saul, Juan, Nemo, Herahd & Nirvana: 
 true false true false true true false

@@ -55,7 +55,7 @@ public class HashTableSC extends HashTable {
 						return true;
 					}
 					else {
-						previous= current;
+						previous = current;
 						current = current.next;
 					}
 				}

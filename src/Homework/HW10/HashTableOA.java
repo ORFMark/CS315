@@ -17,20 +17,24 @@ public class HashTableOA extends HashTable {
 		// TODO Auto-generated method stub
 		NameThingy nameToInsert = new NameThingy(name);
 		int hash = nameToInsert.getHash(size);
+		int startHash = hash;
 		if (table[hash] == null) {
 			table[hash] = nameToInsert;
 			numberOfThingies++;
-		} else {
-			hash++;
-			while (table[hash] != null) {
-				if (hash > size) {
+		}
+		else {
+			do {
+				hash++; 
+				if (hash >= size) {
 					hash = 0;
-				} else {
-					hash++;
+				} 
+				if (table[hash] == null) {
+					table[hash] = nameToInsert;
+					numberOfThingies++;
+					return;
 				}
-			}
-			table[hash] = nameToInsert;
-			numberOfThingies++;
+
+			} while (table[hash] != null);
 		}
 	}
 
@@ -40,6 +44,7 @@ public class HashTableOA extends HashTable {
 	public boolean find(String name) {
 		NameThingy stringToFind = new NameThingy(name);
 		int hash = stringToFind.getHash(size);
+		int startHash = hash;
 		//System.out.println(name + " Should be found at or near " + hash + "Which is " + table[hash]);
 		if (table[hash] != null) {
 			while (table[hash] != null) {
@@ -50,6 +55,9 @@ public class HashTableOA extends HashTable {
 				if (hash >= size) {
 					hash = 0;
 				}
+				else if (hash == startHash) {
+					return false;
+				}
 			}
 		}
 		return false;
@@ -59,6 +67,7 @@ public class HashTableOA extends HashTable {
 	public boolean remove(String name) {
 		NameThingy nameToRemove = new NameThingy(name);
 		int hash = nameToRemove.getHash(size);
+		int startHash = hash;
 		while (table[hash] != null)  {
 			if (table[hash].equals(nameToRemove)) {
 				numberOfThingies--;
@@ -67,6 +76,13 @@ public class HashTableOA extends HashTable {
 			}
 			else {
 				hash++;
+				if (hash >= size) {
+					hash = 0;
+				}
+				else if (hash == startHash) {
+					return false;
+				}
+				
 			}
 		}
 		return false;
@@ -74,18 +90,27 @@ public class HashTableOA extends HashTable {
 
 	private void remove(int index) {
 		// set index location to empty
+		int startIndex = index;
 		table[index] = null;
 		// look for contiguous entry that hashed to index or earlier
 		// move entry to just vacated index location
 		// recurse to do same check for new location
 		int hole = index;
-		while(table[++index] != null) {
-			if (table[index].getHash(size) <= hole && table[index].getHash(size)  != index) {
+		do {
+			index++;
+			if (index >= size) {
+				index = 0;
+			} 
+			if (index == startIndex) {
+				return;
+			}
+			if (table[index] != null && table[index].getHash(size) <= hole && table[index].getHash(size) != index) {
 				table[hole] = table[index];
 				remove(index);
 				return;
 			}
-		}
+			
+		} while (table[index] != null);
 	}
 
 }
