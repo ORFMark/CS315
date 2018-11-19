@@ -10,9 +10,13 @@ import Homework.HW_9.*;
 import InClass.BinaryTree;
 import Homework.HW_1.*;
 import Homework.HW10.*;
+import Homework.HW_11.*;
 public class runner {
+	
 	public static void main(String[] args) {
-		fullTest.runFullTest(args);
+		//fullTest.runFullTest(args);
 		//fullTest.runVanHilstTest(args);
+		Assignment11.run(args);
 	}
+	
 }

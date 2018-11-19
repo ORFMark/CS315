@@ -1,0 +1,7 @@
+graph test2 {
+B -- A [label=1];
+D -- A [label=1];
+D -- B [label=1];
+D -- C [label=1];
+E -- B [label=1];
+}
