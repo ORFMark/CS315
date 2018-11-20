@@ -85,4 +85,19 @@ public class UGraphMatrix extends Graph {
 			return false;
 		}
 	}
+	
+	public void displayGraph(String graphname) {
+		System.out.println("graph " + graphname + " {");
+		for (int i = 0; i < numberOfVertices; i++) {
+			for (int j = 0; j < i; j++) {
+				int weight = edgeMatrix[i][j];
+				if (weight > 0) {
+					System.out.println(vertices[i].label
+							+ " -- " + vertices[j].label
+							+ " [label=" + weight + "];");
+				}
+			}
+		}
+		System.out.println("}");
+	}
 }

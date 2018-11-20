@@ -20,6 +20,7 @@ public class HashTableSC extends HashTable {
 	}
 
 	@Override
+
 	public boolean find(String name) {
 		NameThingy stringToFind = new NameThingy(name);
 		int hash = stringToFind.getHash(size);
@@ -33,7 +34,7 @@ public class HashTableSC extends HashTable {
 			}
 		}
 		return false;
-		
+
 	}
 
 	@Override

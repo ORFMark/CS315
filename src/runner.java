@@ -16,7 +16,7 @@ public class runner {
 	public static void main(String[] args) {
 		//fullTest.runFullTest(args);
 		//fullTest.runVanHilstTest(args);
-		Assignment11.run(args);
+		Assignment11.runFullTest(args);
 	}
 	
 }

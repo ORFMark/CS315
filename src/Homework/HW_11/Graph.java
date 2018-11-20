@@ -4,5 +4,6 @@ public abstract class Graph {
 	public abstract boolean addVertex(String label);
 	public abstract void addEdge(String sourceLabel, String destinationLabel, int weight);
 	public abstract boolean printGraphToFile(String graphname);
+	public abstract void displayGraph(String graphname);
 }
 

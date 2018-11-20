@@ -60,7 +60,9 @@ public class DigraphAdjacencies extends Graph {
 		// find both vertexes, create new edge, and add edge to source vertex'
 		Vertex source = findVertex(sourceLabel);
 		Vertex dest = findVertex(destinationLabel);
-		source.addEdge(new Edge(source, dest, 1));
+		if (source != null && dest != null) {
+			source.addEdge(new Edge(source, dest, weight)); 
+		}
 	}
 
 	private Vertex findVertex(String label) {
@@ -95,5 +97,18 @@ public class DigraphAdjacencies extends Graph {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	public void displayGraph(String graphname) {
+		System.out.println("digraph " + graphname + " {");
+		for (int i = 0; i < numberOfVertices; i++) {
+			Edge e = vertices[i].adjacencies;
+			while (e != null) {
+				System.out.println(e.sourceVertex.label + " -> "
+						+ e.destinationVertex.label
+						+ " [label=" + e.weight + "];");
+				e = e.next;
+			}
+		}
+		System.out.println("}");
 	}
 }
