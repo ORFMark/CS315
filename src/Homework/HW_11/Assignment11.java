@@ -42,6 +42,9 @@ public class Assignment11 {
 		System.out.println();
 		dublicates(new DigraphAdjacencies(20), "Duplicated Values");
 		System.out.println();
+		System.out.println();
+		graphMA225(new UGraphMatrix(20), "MA225");
+		
 		
 	}
 
@@ -152,6 +155,27 @@ public class Assignment11 {
 		g.addEdge("C", "A", 1);
 		g.addEdge("C", "B", 1);
 		g.addEdge("B", "C", 1);
+		g.displayGraph(graphname);
+	}
+	
+	public static void graphMA225(Graph g, String graphname) {
+		g.addVertex("a");
+		g.addVertex("b");
+		g.addVertex("c");
+		g.addVertex("d");
+		g.addVertex("e");
+		g.addVertex("f");
+		g.addEdge("a", "b", 1);
+		g.addEdge("a", "b", 1);
+		g.addEdge("a", "e", 1);
+		g.addEdge("a", "d", 1);
+		g.addEdge("b", "c", 1);
+		g.addEdge("b", "f", 1);
+		g.addEdge("c", "d", 1);
+		g.addEdge("d", "d", 1);
+		g.addEdge("d", "e", 1);
+		g.addEdge("e", "f", 1);
+		g.addEdge("e", "f", 1);
 		g.displayGraph(graphname);
 	}
 }
