@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Catalog {
-	public static void main(String[] args) {
+	public static void run(String[] args) {
 		// List<Item> list = new ArrayList<Item>();
 		List<Item> list = new LinkedList<Item>();
 		list.add(new Item("Budget Garden Hose", 3.99, 2.2));

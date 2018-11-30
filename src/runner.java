@@ -11,12 +11,15 @@ import InClass.BinaryTree;
 import Homework.HW_1.*;
 import Homework.HW10.*;
 import Homework.HW_11.*;
+import Homework.HW_12.*;
+import Homework.HW_13.*;
 public class runner {
 	
 	public static void main(String[] args) {
 		//fullTest.runFullTest(args);
 		//fullTest.runVanHilstTest(args);
-		Assignment11.runFullTest(args);
+		//Assignment11.runFullTest(args);
+		HeapTest.run(args);
 	}
 	
 }
