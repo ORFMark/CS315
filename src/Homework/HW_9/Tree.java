@@ -242,23 +242,23 @@ public class Tree {
 
 
 	public void displayBreadthFirstW() {
-        // use a queue to create the list of Nodes in BFT order
-        IterableDblLinkList list = new IterableDblLinkList();
-        list.insertAtTail(new DblLink(root));
-        GoFIterator iter = list.getGoFIterator();
-        for (iter.first(); !iter.isDone(); iter.next()) {
-            if (iter.currentItem().left != null) {
-                list.insertAtTail(new DblLink(iter.currentItem().left));
-            }
-            if (iter.currentItem().right != null) {
-                list.insertAtTail(new DblLink(iter.currentItem().right));
-            }
-        }
+		// use a queue to create the list of Nodes in BFT order
+		IterableDblLinkList list = new IterableDblLinkList();
+		list.insertAtTail(new DblLink(root));
+		GoFIterator iter = list.getGoFIterator();
+		for (iter.first(); !iter.isDone(); iter.next()) {
+			if (iter.currentItem().left != null) {
+				list.insertAtTail(new DblLink(iter.currentItem().left));
+			}
+			if (iter.currentItem().right != null) {
+				list.insertAtTail(new DblLink(iter.currentItem().right));
+			}
+		}
 
-        for (iter.first(); !iter.isDone(); iter.next()) {
-            System.out.print(iter.currentItem().data + " ");
-        }
-    }
+		for (iter.first(); !iter.isDone(); iter.next()) {
+			System.out.print(iter.currentItem().data + " ");
+		}
+	}
 	public void displayBreadthFirst() {
 		// use a queue to create the list of Nodes in BFT order
 		if(root != null) {

@@ -16,6 +16,7 @@ import Homework.HW_13.*;
 public class runner {
 	
 	public static void main(String[] args) {
+		//TestableTree.run(args);
 		//fullTest.runFullTest(args);
 		//fullTest.runVanHilstTest(args);
 		//Assignment11.runFullTest(args);

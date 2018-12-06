@@ -174,7 +174,9 @@ public class Heap {
     public void heapify() {
         // Loop backwards over first half of array
         // No need to make a heap of leaf nodes on the bottom
-        //for (/* LOOP PARTS GO HERE */;;)
+        for (int i = (numberOfValues / 2) -1; i >=0; i--) {
+        	trickleDown(i);
+        }
             // Left and right sub heaps below each value
             // are already built by the time you get to its index
             // Trickle value at i down to build its sub heap
@@ -188,8 +190,10 @@ public class Heap {
         // Save the current number of values (remove below will decrement it)
         int temp = numberOfValues;
         // Loop from the end backwards towards 0 (but don't include 0)
-        for (/* LOOP PARTS GO HERE */;;)
+        for (int i = numberOfValues; i >= 0; i--) {
             // Put the high value removed in the next vacated end position
+        	data[numberOfValues] = remove();
+        }
             /* CODE LINE FOR LOOP BODY GOES HERE */
         // Restore the original number of values
         numberOfValues = temp;
